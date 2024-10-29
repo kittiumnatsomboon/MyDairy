@@ -33,32 +33,33 @@
 			      			<h5 class="mb-4">สมัครสมาชิกเพื่อเป็นสมาชิกกับระบบเขียน Dairy ของฉัน</h5>
 			      		</div>
 			      	</div>
-					<form action="#" class="signin-form">
+					<form action="{{ URL::TO('/sign_up') }}" class="signin-form" method="post">
+						@csrf
 			      		<div class="form-group mt-3">
 			      			<input type="text" class="form-control" required>
 			      			<label class="form-control-placeholder" for="username">ชื่อ-นามสกุล</label>
 			      		</div>
 						<div class="form-group">
-							<input id="password-field" type="password" class="form-control" required>
-							<label class="form-control-placeholder" for="password">Password</label>
-							<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							<input id="dateofbirth" type="text" class="form-control" required>
+							<label class="form-control-placeholder" for="password">วันเดือนปีเกิด</label>
 						</div>
 						<div class="form-group">
-							<button type="submit" class="form-control btn btn-primary rounded submit px-3">เข้าสู่ระบบ</button>
+							<input id="email" type="email" class="form-control" required>
+							<label class="form-control-placeholder" for="password">ที่อยู่อีเมลล์</label>
 						</div>
-						<div class="form-group d-md-flex">
-							<div class="w-50 text-left">
-								<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
-								<input type="checkbox" checked>
-								<span class="checkmark"></span>
-								</label>
-							</div>
-							<div class="w-50 text-md-right">
-								<a href="#">Forgot Password</a>
-							</div>
+						<div class="form-group">
+							<input id="password-field" type="password" class="form-control" required>
+							<label class="form-control-placeholder" for="password">รหัสผ่าน</label>
+						</div>
+						<div class="form-group">
+							<input id="password-field" type="password" class="form-control" required>
+							<label class="form-control-placeholder" for="password">ยืนยันรหัสผ่าน</label>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="form-control btn btn-primary rounded submit px-3">สมัครสมาชิก</button>
 						</div>
 		          	</form>
-		          <p class="text-center">คุณยังไม่มีบัญชีหรือ? <a data-toggle="tab" href="#signup">สมัครสมาชิก</a></p>
+		          <p class="text-center">เข้าสู่ระบบ<a href="{{route('/')}}">คลิ๊ก</a></p>
 		        </div>
 		      </div>
 				</div>
