@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Session;
-class login_controller extends Controller
+
+class Admin_dasboard extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class login_controller extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -35,23 +35,7 @@ class login_controller extends Controller
      */
     public function store(Request $request)
     {
-        $validator =  $request->validate([
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-   
-    
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            if(Auth::user()->user_type == "staff"){
-                return redirect()->intended('dashboard')
-                        ->withSuccess('Signed in');
-            }
-            // return redirect()->intended('/admin/dashboard')
-            // ->withSuccess('Signed in');
-        }
-        $validator['emailPassword'] = 'Email address or password is incorrect.';
-        return redirect("/")->withErrors($validator);
+        //
     }
 
     /**

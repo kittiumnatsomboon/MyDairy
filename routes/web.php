@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\admin\Admin_dasboard as AdminAdmin_dasboard;
 use App\Http\Controllers\dashboard__controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Register_controller;
 use App\Http\Controllers\login_controller;
 use App\Http\Controllers\dashboard_controller;
+use App\Http\Controllers\Admin_dasboard;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +31,4 @@ Route::get('/Register',function(){
 Route::resource('/sign_up',Register_controller::class);
 Route::resource('/sign_in',login_controller::class);
 Route::resource('/dashboard',dashboard_controller::class);
+Route::resource('/admin/dashboard',Admin_dasboard::class);
