@@ -13,7 +13,7 @@ class Register_controller extends Controller
      */
     public function index()
     {
-        //
+       echo "INDEX";
     }
 
     /**
@@ -23,7 +23,8 @@ class Register_controller extends Controller
      */
     public function create()
     {
-        //
+        // echo "CREATESsss";
+
     }
 
     /**
@@ -34,7 +35,8 @@ class Register_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // echo "CREATES";
+
     }
 
     /**

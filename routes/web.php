@@ -23,4 +23,4 @@ Route::get('/Register',function(){
     return view('register',compact("toppic_title"));
 })->name('/sign-up');
 
-Route::resource('/sign_up', Register_controller::class);
+Route::resource('/sign_up',Register_controller::class);
