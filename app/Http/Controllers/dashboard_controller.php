@@ -14,6 +14,7 @@ class dashboard_controller extends Controller
     public function index()
     {   
         $title_dashboard = "หน้าแดรชบอร์ดผู้ใช้งาน";
+        
         return view('dashboard.dashboard',compact('title_dashboard'));
     }
 
