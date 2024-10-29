@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $toppic_title = "หน้าเข้าสู่ระบบ";
     return view('login',compact("toppic_title"));
-});
+})->name('/');
 Route::get('/Register',function(){
     $toppic_title = "ระบบสมัครสมาชิก";
     return view('register',compact("toppic_title"));
