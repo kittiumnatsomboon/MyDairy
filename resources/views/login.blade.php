@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- css style -->
 	<link rel="stylesheet" href="css/style.css">
+	<!-- jquery cdn -->
+	<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
 
 	</head>
 	<body>
@@ -80,10 +82,10 @@
 		</div>
 	</section>
 
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+	<script src="{{ URL::TO('js/jquery.min.js')}}"></script>
+	<script src="{{ URL::TO('js/popper.js')}}"></script>
+	<script src="{{ URL::TO('js/bootstrap.min.js')}}"></script>
+	<script src="{{ URL::TO('js/main.js')}}"></script>
 
 	</body>
 </html>
