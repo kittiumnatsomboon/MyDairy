@@ -49,13 +49,14 @@
 									</p>
 								</div>
 			      	</div>
-					<form action="#" class="signin-form">
+					<form action="{{ URL::TO('/sign_in')}}" method="post" class="signin-form">
+						@csrf
 			      		<div class="form-group mt-3">
-			      			<input type="email" class="form-control" required>
+			      			<input type="email" name="email"class="form-control" required>
 			      			<label class="form-control-placeholder" for="username">Email Address</label>
 			      		</div>
 						<div class="form-group">
-							<input id="password-field" type="password" class="form-control" required>
+							<input id="password" name="password" type="password" class="form-control" required>
 							<label class="form-control-placeholder" for="password">Password</label>
 							<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 						</div>
