@@ -33,7 +33,8 @@
 			      			<h5 class="mb-4">สมัครสมาชิกเพื่อเป็นสมาชิกกับระบบเขียน Dairy ของฉัน</h5>
 			      		</div>
 			      	</div>
-					<form action="#" class="signin-form">
+					<form action="{{ URL::TO('/sign_up') }}" class="signin-form" method="post">
+						@csrf
 			      		<div class="form-group mt-3">
 			      			<input type="text" class="form-control" required>
 			      			<label class="form-control-placeholder" for="username">ชื่อ-นามสกุล</label>
