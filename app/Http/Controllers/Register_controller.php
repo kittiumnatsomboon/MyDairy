@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\User;
 class Register_controller extends Controller
 {
     /**
@@ -21,10 +21,16 @@ class Register_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        // echo "CREATESsss";
 
+    public function create(array $data)
+    {
+        return User::create([
+            'fullname' => $data['fullname'],
+            'dateofbrith'=> $data['dateofbirth'],
+            'email'=> $data['email'],
+            'password'=> md5($data['password']),
+            'user_type' => 'staff'
+          ]);
     }
 
     /**
@@ -35,9 +41,28 @@ class Register_controller extends Controller
      */
     public function store(Request $request)
     {
-        // echo "CREATES";
+       /*
+        fullname
+        dateofbirth
+        email
+        password
+        confrim_password
+       */
+        $request->validate([
+            'fullname' => 'required|min:6',
+            'dateofbirth' => 'required|min:6',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            'confrim_password' => 'required|min:6'
+        ]);
+           
+        $data = $request->all();
+        $check = $this->create($data);
+         
+        return redirect("/")->withSuccess('You have signed-in');
 
     }
+    
 
     /**
      * Display the specified resource.
