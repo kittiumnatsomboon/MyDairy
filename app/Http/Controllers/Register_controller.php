@@ -29,7 +29,7 @@ class Register_controller extends Controller
             'fullname' => $data['fullname'],
             'dateofbrith'=> $data['dateofbirth'],
             'email'=> $data['email'],
-            'password'=> Hash::make($data['password']),
+            'password'=> md5($data['password']),
             'user_type' => 'staff'
           ]);
     }

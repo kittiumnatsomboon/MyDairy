@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use Hash;
+use Illuminate\Support\Facades\DB;
 class login_controller extends Controller
 {
     /**
@@ -41,15 +43,28 @@ class login_controller extends Controller
         ]);
    
     
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            if(Auth::user()->user_type == "staff"){
-                return redirect()->intended('dashboard')
-                        ->withSuccess('Signed in');
+        $email = $request->input('email');
+        $password = md5($request->input('password'));
+        $users = DB::table('users')
+            ->select(
+            'user_id',
+            'fullname', 
+            'user_type', 
+            'dateofbrith', 
+            'image_name', 
+            'email', 
+            'password',
+            )
+            ->where('email',$email)
+            ->where('password',$password)
+            ->get();
+        foreach($users as $row){
+            if($row->user_type == "staff"){
+                return redirect("/dashboard");
             }
-            // return redirect()->intended('/admin/dashboard')
-            // ->withSuccess('Signed in');
+            return redirect("/admin/dashboard");
         }
+        exit;
         $validator['emailPassword'] = 'Email address or password is incorrect.';
         return redirect("/")->withErrors($validator);
     }
