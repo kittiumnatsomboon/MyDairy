@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Session;
 use Hash;
-class Register_controller extends Controller
+use Illuminate\Support\Facades\DB;
+class login_controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class Register_controller extends Controller
      */
     public function index()
     {
-       echo "INDEX";
+        //
     }
 
     /**
@@ -22,16 +24,9 @@ class Register_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function create(array $data)
+    public function create()
     {
-        return User::create([
-            'fullname' => $data['fullname'],
-            'dateofbrith'=> $data['dateofbirth'],
-            'email'=> $data['email'],
-            'password'=> md5($data['password']),
-            'user_type' => 'staff'
-          ]);
+        //
     }
 
     /**
@@ -42,22 +37,37 @@ class Register_controller extends Controller
      */
     public function store(Request $request)
     {
-       
-        $request->validate([
-            'fullname' => 'required|min:6',
-            'dateofbirth' => 'required|min:6',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-            'confrim_password' => 'required|min:6'
+        $validator =  $request->validate([
+            'email' => 'required',
+            'password' => 'required',
         ]);
-           
-        $data = $request->all();
-        $check = $this->create($data);
-         
-        return redirect("/")->withSuccess('You have signed-in');
-
-    }
+   
     
+        $email = $request->input('email');
+        $password = md5($request->input('password'));
+        $users = DB::table('users')
+            ->select(
+            'user_id',
+            'fullname', 
+            'user_type', 
+            'dateofbrith', 
+            'image_name', 
+            'email', 
+            'password',
+            )
+            ->where('email',$email)
+            ->where('password',$password)
+            ->get();
+        foreach($users as $row){
+            if($row->user_type == "staff"){
+                return redirect("/dashboard");
+            }
+            return redirect("/admin/dashboard");
+        }
+        exit;
+        $validator['emailPassword'] = 'Email address or password is incorrect.';
+        return redirect("/")->withErrors($validator);
+    }
 
     /**
      * Display the specified resource.

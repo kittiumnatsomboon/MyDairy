@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Hash;
-class Register_controller extends Controller
+
+class Admin_dasboard extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class Register_controller extends Controller
      */
     public function index()
     {
-       echo "INDEX";
+       
     }
 
     /**
@@ -22,16 +22,9 @@ class Register_controller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function create(array $data)
+    public function create()
     {
-        return User::create([
-            'fullname' => $data['fullname'],
-            'dateofbrith'=> $data['dateofbirth'],
-            'email'=> $data['email'],
-            'password'=> md5($data['password']),
-            'user_type' => 'staff'
-          ]);
+        //
     }
 
     /**
@@ -42,22 +35,8 @@ class Register_controller extends Controller
      */
     public function store(Request $request)
     {
-       
-        $request->validate([
-            'fullname' => 'required|min:6',
-            'dateofbirth' => 'required|min:6',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-            'confrim_password' => 'required|min:6'
-        ]);
-           
-        $data = $request->all();
-        $check = $this->create($data);
-         
-        return redirect("/")->withSuccess('You have signed-in');
-
+        //
     }
-    
 
     /**
      * Display the specified resource.
