@@ -13,6 +13,9 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- css style -->
 	<link rel="stylesheet" href="css/style.css">
+	<!-- jquery-CSS-UI -->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+	
 
 	</head>
 	<body>
@@ -48,11 +51,11 @@
 							<label class="form-control-placeholder" for="password">ที่อยู่อีเมลล์</label>
 						</div>
 						<div class="form-group">
-							<input id="password-field" type="password" class="form-control" required>
+							<input id="password" type="password" class="form-control" required>
 							<label class="form-control-placeholder" for="password">รหัสผ่าน</label>
 						</div>
 						<div class="form-group">
-							<input id="password-field" type="password" class="form-control" required>
+							<input id="confrim_password" type="password" class="form-control" required>
 							<label class="form-control-placeholder" for="password">ยืนยันรหัสผ่าน</label>
 						</div>
 						<div class="form-group">
@@ -67,11 +70,14 @@
 		</div>
 	</section>
 
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-
+	<script src="{{ URL::TO('js/jquery.min.js')}}"></script>
+	<script src="{{ URL::TO('js/popper.js')}}"></script>
+	<script src="{{ URL::TO('js/bootstrap.min.js')}}"></script>
+	<script src="{{ URL::TO('js/main.js')}}"></script>
+	<script src="{{ URL::TO('js/datepicker.js')}}"></script>
+	<!-- script jqueryUI -->
+	<script src="{{URL::TO('js/jquery.min.js')}}"></script>
+  	<script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
 	</body>
 </html>
 
