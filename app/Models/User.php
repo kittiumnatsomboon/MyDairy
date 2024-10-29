@@ -20,7 +20,7 @@ class User extends Authenticatable
         'fullname', 
         'user_type', 
         'dateofbrith', 
-        'image_name', 
+        'image_names', 
         'email', 
         'password',
     ];
