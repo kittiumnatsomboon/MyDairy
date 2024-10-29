@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Session;
+use Illuminate\Support\Facades\Session;
 use Hash;
 use Illuminate\Support\Facades\DB;
 class login_controller extends Controller
@@ -59,6 +59,9 @@ class login_controller extends Controller
             ->where('password',$password)
             ->get();
         foreach($users as $row){
+            Session::put('fullname',$row->fullname);
+            Session::put('email',$row->email);
+            Session::put('islogin', true);
             if($row->user_type == "staff"){
                 return redirect("/dashboard");
             }
