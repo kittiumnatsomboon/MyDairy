@@ -39,23 +39,23 @@
 					<form action="{{ URL::TO('/sign_up') }}" class="signin-form" method="post">
 						@csrf
 			      		<div class="form-group mt-3">
-			      			<input type="text" class="form-control" required>
+			      			<input type="text" name="fullname" class="form-control" required>
 			      			<label class="form-control-placeholder" for="username">ชื่อ-นามสกุล</label>
 			      		</div>
 						<div class="form-group">
-							<input id="dateofbirth" type="text" class="form-control" required>
+							<input id="dateofbirth" name="dateofbirth" type="text" class="form-control" required>
 							<label class="form-control-placeholder" for="password">วันเดือนปีเกิด</label>
 						</div>
 						<div class="form-group">
-							<input id="email" type="email" class="form-control" required>
+							<input id="email" type="email" name="email" class="form-control" required>
 							<label class="form-control-placeholder" for="password">ที่อยู่อีเมลล์</label>
 						</div>
 						<div class="form-group">
-							<input id="password" type="password" class="form-control" required>
+							<input id="password" type="password" name="password" class="form-control" required>
 							<label class="form-control-placeholder" for="password">รหัสผ่าน</label>
 						</div>
 						<div class="form-group">
-							<input id="confrim_password" type="password" class="form-control" required>
+							<input id="confrim_password" type="password" name="confrim_password" class="form-control" required>
 							<label class="form-control-placeholder" for="password">ยืนยันรหัสผ่าน</label>
 						</div>
 						<div class="form-group">
